@@ -64,7 +64,7 @@ export function renderTextMenu() {
       const note = c.note
         ? `<div class="mn-item" style="padding-top:0;border-top:none;"><div class="mn-item-desc mn-item-note" style="grid-column:1/-1;">${esc(c.note)}</div></div>`
         : "";
-      const grills = c.grillsOnly ? `<div class="notes grills-note">Grills <b>only</b> available at Grassy Park</div>` : "";
+      const grills = c.grillsOnly ? `<div class="notes grills-note">Grills <b>only</b> available at ${window.__siteConfig?.stores?.find(s => s.grillsOnly)?.name ?? "Grassy Park"}</div>` : "";
       const items = c.items
         .map(item => {
           const prices = sizes

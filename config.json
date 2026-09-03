@@ -3,6 +3,10 @@
   "name": "Manies Pizza",
   "tagline": "Wood-fired · Grassy Park & Rondebosch",
   "version": "v01.20",
+  "stores": [
+    { "id": "grassy-park", "name": "Grassy Park", "phone": "27628859986", "grillsOnly": true },
+    { "id": "rondebosch-east", "name": "Rondebosch East", "phone": "27616202816" }
+  ],
   "theme": {
     "ink": "#1a1208",
     "cream": "#f7f3ee",

@@ -1,6 +1,7 @@
 let cart = [];
 let currency = "R";
 let cartVisible = false;
+let siteConfig = null;
 
 const el = {
   cart: () => document.getElementById("cart"),
@@ -12,8 +13,9 @@ const el = {
   toggle: () => document.getElementById("cart-toggle")
 };
 
-export function initCart(data, hooks) {
+export function initCart(data, hooks, config) {
   currency = data.currency;
+  siteConfig = config;
   el.toggle()?.addEventListener("click", toggleCart);
   document.querySelectorAll("input[name=store]").forEach(r => r.addEventListener("change", () => {
     if (hooks.grassyParkSelected() || !cart.some(i => i.isGrill)) return;
@@ -46,7 +48,10 @@ function findStore() {
 
 export function grassyParkSelected() {
   const r = document.querySelector("input[name=store]:checked");
-  return !!r && r.value === "27628859986";
+  if (!r || !siteConfig) return false;
+  const id = r.closest("label")?.dataset?.store || r.value;
+  const store = siteConfig.stores?.find(s => s.id === id || s.phone === r.value);
+  return !!store?.grillsOnly;
 }
 
 function addToCart(item, size, price) {
@@ -116,7 +121,8 @@ export function sendOrder() {
     .map(i => `${i.name} (${i.size}) x${i.count} - ${currency}${i.price * i.count}`)
     .join("\n");
   const total = cart.reduce((n, i) => n + i.price * i.count, 0);
-  const msg = `Hi Manies Pizza! I'd like to place an order for *${store.name}*:\n\n${lines}\n\nTotal: ${currency}${total}\n\nFor delivery add an address or share your location with us. For pick-up just bring a smile!`;
+  const siteName = siteConfig?.name ?? "";
+  const msg = `Hi ${siteName}! I'd like to place an order for *${store.name}*:\n\n${lines}\n\nTotal: ${currency}${total}\n\nFor delivery add an address or share your location with us. For pick-up just bring a smile!`;
   window.open(`https://wa.me/${store.phone}?text=${encodeURIComponent(msg)}`, "_blank");
 }
 

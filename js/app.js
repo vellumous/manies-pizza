@@ -89,8 +89,13 @@ function wireHome() {
 }
 
 async function boot() {
-  const res = await fetch("data/menu.json");
-  appMenu = await res.json();
+  const [menuRes, configRes] = await Promise.all([
+    fetch("data/menu.json"),
+    fetch("config.json")
+  ]);
+  appMenu = await menuRes.json();
+  const config = await configRes.json();
+  window.__siteConfig = config;
   appMenu.categories.forEach(c => c.items.forEach(i => (i._grill = !!c.grillsOnly)));
 
   const hooks = {
@@ -98,13 +103,16 @@ async function boot() {
       addItem(item, size, price);
       feedback("Added to cart!");
     },
-    onGrillBlocked: () => feedback("Grills only available at Grassy Park", "block"),
+    onGrillBlocked: () => {
+      const grillsStore = config.stores?.find(s => s.grillsOnly);
+      feedback(`Grills only available at ${grillsStore?.name ?? "Grassy Park"}`, "block");
+    },
     grassyParkSelected,
     grillBlocked: msg => feedback(msg, "block")
   };
 
   initMenu(appMenu, hooks);
-  initCart(appMenu, hooks);
+  initCart(appMenu, hooks, config);
   document.getElementById("whatsapp-btn").addEventListener("click", sendOrder);
 }
 
