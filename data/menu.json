@@ -1,0 +1,1333 @@
+{
+  "currency": "R",
+  "stores": [
+    {
+      "id": "grassy-park",
+      "name": "Grassy Park",
+      "phone": "27628859986"
+    },
+    {
+      "id": "rondebosch-east",
+      "name": "Rondebosch East",
+      "phone": "27616202816"
+    }
+  ],
+  "categories": [
+    {
+      "id": "steak",
+      "name": "Steak",
+      "note": "All Meg sizes include nachos",
+      "items": [
+        {
+          "id": "bokaap",
+          "name": "Bokaap",
+          "description": "Gheema steak, coriander & green pepper",
+          "note": null,
+          "visual": "img/pizza_bokaap.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "s",
+              "price": 145
+            },
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        },
+        {
+          "id": "parkwood",
+          "name": "Parkwood",
+          "description": "Smokey BBQ steak & avo",
+          "note": "avo seasonal",
+          "visual": "img/pizza_parkwood.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        },
+        {
+          "id": "wynberg",
+          "name": "Wynberg",
+          "description": "Pepper steak, mushrooms, red onion & green pepper",
+          "note": null,
+          "visual": "img/pizza_wynberg.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        },
+        {
+          "id": "manenberg",
+          "name": "Manenberg",
+          "description": "Spicy steak, kaapse beans, peppers, chillies & nachos",
+          "note": null,
+          "visual": "img/pizza_manenberg.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "s",
+              "price": 145
+            },
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        },
+        {
+          "id": "newlands",
+          "name": "Newlands",
+          "description": "Caramelized BBQ steak, mushrooms, feta & rocket",
+          "note": "new",
+          "visual": "img/pizza_newlands.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meat",
+      "name": "Meat",
+      "note": null,
+      "items": [
+        {
+          "id": "rondebosch-east",
+          "name": "Rondebosch East",
+          "description": "Pastrami, salami, pineapple, green pepper & avo",
+          "note": "avo seasonal",
+          "visual": "img/pizza_rondebosch_east.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        },
+        {
+          "id": "mitchells-plain",
+          "name": "Mitchells Plain",
+          "description": "Smokey BBQ sausage, banana, caramelized onion, rocket & balsamic glaze",
+          "note": null,
+          "visual": "img/pizza_mitchells_plain.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        },
+        {
+          "id": "ottery",
+          "name": "Ottery",
+          "description": "Salami, char-grilled beef patty, jalapeño sauce, pineapple, caramelized onion & fresh coriander",
+          "note": null,
+          "visual": "img/pizza_ottery.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 175
+            },
+            {
+              "size": "l",
+              "price": 205
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 270
+            },
+            {
+              "size": "meg",
+              "price": 325
+            }
+          ]
+        },
+        {
+          "id": "southfield",
+          "name": "Southfield",
+          "description": "Pepperoni, mozzarella on Napolitana base",
+          "note": null,
+          "visual": "img/pizza_southfield.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 165
+            },
+            {
+              "size": "l",
+              "price": 195
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 255
+            },
+            {
+              "size": "meg",
+              "price": 305
+            }
+          ]
+        },
+        {
+          "id": "lavender-hill",
+          "name": "Lavender Hill",
+          "description": "Ground beef, jalapeños, fresh chillies & pepperdews",
+          "note": "new",
+          "visual": "img/pizza_lavender_hill.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 165
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "note": null,
+      "items": [
+        {
+          "id": "plumstead",
+          "name": "Plumstead",
+          "description": "BBQ chicken, feta & red onion",
+          "note": null,
+          "visual": "img/pizza_plumstead.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "s",
+              "price": 125
+            },
+            {
+              "size": "m",
+              "price": 145
+            },
+            {
+              "size": "l",
+              "price": 185
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 235
+            },
+            {
+              "size": "meg",
+              "price": 290
+            }
+          ]
+        },
+        {
+          "id": "rylands",
+          "name": "Rylands",
+          "description": "Spicy chicken, peri-pineapple & coriander",
+          "note": null,
+          "visual": "img/pizza_rylands.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "s",
+              "price": 125
+            },
+            {
+              "size": "m",
+              "price": 145
+            },
+            {
+              "size": "l",
+              "price": 185
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 235
+            },
+            {
+              "size": "meg",
+              "price": 290
+            }
+          ]
+        },
+        {
+          "id": "moezna",
+          "name": "Moezna",
+          "description": "Recco chicken, mushrooms, red onion & peppers",
+          "note": null,
+          "visual": "img/pizza_moezna.webp",
+          "prices": [
+            {
+              "size": "slow",
+              "price": 85
+            },
+            {
+              "size": "s",
+              "price": 125
+            },
+            {
+              "size": "m",
+              "price": 145
+            },
+            {
+              "size": "l",
+              "price": 185
+            },
+            {
+              "size": "gog",
+              "price": 145
+            },
+            {
+              "size": "mini",
+              "price": 235
+            },
+            {
+              "size": "meg",
+              "price": 290
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gourmet",
+      "name": "Gourmet",
+      "note": null,
+      "items": [
+        {
+          "id": "waterfront",
+          "name": "Waterfront",
+          "description": "Crayfish, prawns, pineapple, pepperdews & olives",
+          "note": "seasonal",
+          "visual": "img/pizza_waterfront.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 270
+            }
+          ]
+        },
+        {
+          "id": "claremont",
+          "name": "Claremont",
+          "description": "Deboned ribs, butternut, baby marrow, red onion, mushrooms, feta, cream cheese & pepperdews",
+          "note": null,
+          "visual": "img/pizza_claremont.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 220
+            }
+          ]
+        },
+        {
+          "id": "hanover-park",
+          "name": "Hanover Park",
+          "description": "Flame-grilled chicken in Manies Secret sauce, coriander & avo",
+          "note": "avo seasonal",
+          "visual": "img/pizza_hanover_park.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 220
+            }
+          ]
+        },
+        {
+          "id": "district-six",
+          "name": "District Six",
+          "description": "Grilled chops, mushroom, red onion & feta, topped with Manies Secret sauce",
+          "note": null,
+          "visual": "img/pizza_districtsix.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 220
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seafood",
+      "name": "Seafood",
+      "note": null,
+      "items": [
+        {
+          "id": "kalkbay",
+          "name": "Kalkbay",
+          "description": "Braai snoek, prawns, green peppers, onions & pepperdews",
+          "note": null,
+          "visual": "img/pizza_kalkbay.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 200
+            }
+          ]
+        },
+        {
+          "id": "hout-bay",
+          "name": "Hout Bay",
+          "description": "Braai snoek, onions, peri-pineapple, chillies, yoghurt sauce, pepperdews & 3 cheeses",
+          "note": null,
+          "visual": "img/pizza_hout_bay.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 220
+            }
+          ]
+        },
+        {
+          "id": "saldanha-bay",
+          "name": "Saldanha Bay",
+          "description": "Creamy lemon butter mussels, tikka prawns, cream cheese, truffle garlic & herb base, red onion, green pepper & mushrooms",
+          "note": null,
+          "visual": "img/pizza_saldanha_bay.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 240
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vegetarian",
+      "name": "Vegetarian",
+      "note": null,
+      "items": [
+        {
+          "id": "garlic-chita",
+          "name": "Garlic Chita",
+          "description": "Garlic base, mozzarella, seasoning",
+          "note": null,
+          "visual": "img/pizza_garlic_chita_slice.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 75
+            },
+            {
+              "size": "m",
+              "price": 90
+            },
+            {
+              "size": "l",
+              "price": 110
+            }
+          ]
+        },
+        {
+          "id": "margherita",
+          "name": "Margherita",
+          "description": "Napolitano base, mozzarella, seasoning",
+          "note": null,
+          "visual": "img/pizza_margherita.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 75
+            },
+            {
+              "size": "m",
+              "price": 90
+            },
+            {
+              "size": "l",
+              "price": 110
+            }
+          ]
+        },
+        {
+          "id": "cheesy-trio",
+          "name": "Cheesy Trio",
+          "description": "Feta, mozzarella & cheddar",
+          "note": null,
+          "visual": "img/pizza_cheesy_trio.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 85
+            },
+            {
+              "size": "m",
+              "price": 90
+            },
+            {
+              "size": "l",
+              "price": 110
+            }
+          ]
+        },
+        {
+          "id": "chilli-blaster",
+          "name": "Chilli Blaster",
+          "description": "Mushrooms, peri-pineapple, chillies & pepperdews",
+          "note": null,
+          "visual": "img/pizza_chilli_blaster.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 120
+            },
+            {
+              "size": "l",
+              "price": 160
+            },
+            {
+              "size": "meg",
+              "price": 140
+            }
+          ]
+        },
+        {
+          "id": "heathfield",
+          "name": "Heathfield",
+          "description": "Butternut, mushroom, baby marrow, caramelized onion & pepperdews",
+          "note": null,
+          "visual": "img/pizza_heathfield.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 120
+            },
+            {
+              "size": "l",
+              "price": 160
+            },
+            {
+              "size": "meg",
+              "price": 140
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "burgers",
+      "name": "Burgers",
+      "note": null,
+      "items": [
+        {
+          "id": "chicken-burger",
+          "name": "Chicken Burger",
+          "description": "Grilled chicken fillet, cheese, fries & choice of mushroom or cheese sauce",
+          "note": null,
+          "visual": "img/burger_chicken_chips.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 79
+            },
+            {
+              "size": "d",
+              "price": 99
+            }
+          ]
+        },
+        {
+          "id": "beef-burger",
+          "name": "Beef Burger",
+          "description": "Beef patty, cheese, fries & choice of mushroom or cheese sauce",
+          "note": null,
+          "visual": "img/burger_beef_chips.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 79
+            },
+            {
+              "size": "d",
+              "price": 99
+            }
+          ]
+        },
+        {
+          "id": "wagyu-beef-burger",
+          "name": "Wagyu Beef Burger",
+          "description": "Wagyu beef patty, cheese, fries & choice of mushroom or cheese sauce",
+          "note": null,
+          "visual": "img/burger_wagyu_chips.webp",
+          "prices": [
+            {
+              "size": "d",
+              "price": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pastas",
+      "name": "Pastas",
+      "note": null,
+      "items": [
+        {
+          "id": "durbanville",
+          "name": "Durbanville",
+          "description": "Recco linguine / penne with chicken & mushroom",
+          "note": "serves 2",
+          "visual": "img/pasta_durbanville_1.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "id": "plattekloof",
+          "name": "Plattekloof",
+          "description": "Linguini, chicken, salami, sausage, mushrooms & parmesan",
+          "note": "serves 2",
+          "visual": "img/pasta_plattekloof.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 185
+            }
+          ]
+        },
+        {
+          "id": "table-view",
+          "name": "Table View",
+          "description": "Baby tomatoes, mushrooms, basil & mozzarella",
+          "note": "vegetarian, serves 2",
+          "visual": "img/pasta_table_view.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 125
+            }
+          ]
+        },
+        {
+          "id": "blouberg",
+          "name": "Blouberg",
+          "description": "Linguini, prawns, cherry tomatoes & rocket",
+          "note": "serves 2",
+          "visual": "img/pasta_blouberg.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 155
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grills",
+      "name": "Grills",
+      "note": "Grills only available at Grassy Park",
+      "grillsOnly": true,
+      "items": [
+        {
+          "id": "chicken-wings",
+          "name": "Chicken Wings",
+          "description": "Five whole wings — lemon herb, smokey BBQ, peri-peri or tikka",
+          "note": null,
+          "visual": "img/grills_chicken_wings.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 140
+            }
+          ]
+        },
+        {
+          "id": "ribs-half",
+          "name": "Ribs Half",
+          "description": "Half portion with choice of mushroom or cheese sauce",
+          "note": "400g",
+          "visual": "img/grills_ribs_2.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 255
+            }
+          ]
+        },
+        {
+          "id": "ribs-full",
+          "name": "Ribs Full",
+          "description": "Full portion with choice of mushroom or cheese sauce",
+          "note": "800g",
+          "visual": "img/grills_ribs_2.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 345
+            }
+          ]
+        },
+        {
+          "id": "mix-grill",
+          "name": "Mix Grill",
+          "description": "2pc Chicken, 2pc Chops, 2pc Sausage, 2pc Steak, 1pc Keb",
+          "note": "Masala or BBQ",
+          "visual": null,
+          "prices": [
+            {
+              "size": "l",
+              "price": 395
+            }
+          ]
+        },
+        {
+          "id": "chicken-kebabs",
+          "name": "Chicken Kebabs",
+          "description": "Choice of lemon herb, smokey BBQ, peri-peri or tikka",
+          "note": "200g",
+          "visual": "img/grills_chicken_kebabs.webp",
+          "prices": [
+            {
+              "size": "l",
+              "price": 155
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sandwiches",
+      "name": "Sandwiches",
+      "note": null,
+      "items": [
+        {
+          "id": "masala-steak-brood",
+          "name": "Masala Steak Brood",
+          "description": "Masala steak and potato, layered on three slices of toasted bread, topped with crisp lettuce, red onions, two fried eggs and melted cheese. Sprinkled with a touch of manies magic",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "l",
+              "price": 109
+            }
+          ]
+        },
+        {
+          "id": "masala-chicken-brood",
+          "name": "Masala Chicken Brood",
+          "description": "Masala chicken and potato, layered on three slices of toasted bread, topped with crisp lettuce, red onions, two fried eggs and melted cheese. Sprinkled with a touch of manies magic",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "l",
+              "price": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "milkshakes",
+      "name": "Milkshakes",
+      "note": null,
+      "items": [
+        {
+          "id": "chocolate-shake",
+          "name": "Chocolate",
+          "description": "Classic double thick",
+          "note": null,
+          "visual": "img/shake-chocolate.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 45
+            },
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "strawberry-shake",
+          "name": "Strawberry",
+          "description": "Classic double thick",
+          "note": null,
+          "visual": "img/shake_strawberry.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 45
+            },
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "salted-caramel-shake",
+          "name": "Salted Caramel",
+          "description": "Classic double thick",
+          "note": null,
+          "visual": "img/shake_all_flavours.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 45
+            },
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "banana-shake",
+          "name": "Banana",
+          "description": "Classic double thick",
+          "note": null,
+          "visual": "img/shake_all_flavours.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 45
+            },
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "lime-shake",
+          "name": "Lime",
+          "description": "Classic double thick",
+          "note": null,
+          "visual": "img/shake_all_flavours.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 45
+            },
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "oreo-shake",
+          "name": "Oreo",
+          "description": "Classic double thick",
+          "note": null,
+          "visual": "img/shake_all_flavours.webp",
+          "prices": [
+            {
+              "size": "s",
+              "price": 45
+            },
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "falooda-shake",
+          "name": "Falooda",
+          "description": "Classic double thick",
+          "note": null,
+          "visual": "img/shake_all_flavours.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "note": null,
+      "items": [
+        {
+          "id": "oreo-ice-cream-pudding",
+          "name": "Oreo Ice Cream Pudding",
+          "description": "Chocolate cake, ice cream, sauce, whipped cream & candy toppings",
+          "note": "350ml",
+          "visual": "img/cup_chocolate.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "strawberry-ice-cream-pudding",
+          "name": "Strawberry Ice Cream Pudding",
+          "description": "Mint cake, ice cream, sauce, whipped cream & candy toppings",
+          "note": "350ml",
+          "visual": "img/cup_marshmallow.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "peppermint-ice-cream-pudding",
+          "name": "Peppermint Ice Cream Pudding",
+          "description": "Vanilla cake, ice cream, sauce, whipped cream & candy toppings",
+          "note": "350ml",
+          "visual": "img/cup_mint.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "woodfired-waffle",
+          "name": "Woodfired Waffle",
+          "description": "Freshly baked wood-fired waffle, two scoops of premium ice cream & choice of sauce",
+          "note": null,
+          "visual": "img/waffles_1.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "id": "woodfired-waffle-cup",
+          "name": "Woodfired Waffle Cup",
+          "description": "Warm wood-fired waffle cubes, ice cream & choice of sauce",
+          "note": null,
+          "visual": "img/waffles_banner.webp",
+          "prices": [
+            {
+              "size": "m",
+              "price": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "name": "Extras",
+      "note": null,
+      "items": [
+        {
+          "id": "extra-chicken",
+          "name": "Chicken",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 40
+            }
+          ]
+        },
+        {
+          "id": "extra-cheese",
+          "name": "Cheese",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 40
+            }
+          ]
+        },
+        {
+          "id": "extra-sliced-cheese",
+          "name": "Sliced Cheese",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 15
+            }
+          ]
+        },
+        {
+          "id": "extra-mushrooms",
+          "name": "Mushrooms",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 20
+            }
+          ]
+        },
+        {
+          "id": "extra-steak",
+          "name": "Steak",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 45
+            }
+          ]
+        },
+        {
+          "id": "extra-prawns",
+          "name": "Prawns",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 75
+            }
+          ]
+        },
+        {
+          "id": "extra-avo",
+          "name": "Avo",
+          "description": "Additional topping",
+          "note": "seasonal",
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 20
+            }
+          ]
+        },
+        {
+          "id": "extra-nachos",
+          "name": "Nachos",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 75
+            }
+          ]
+        },
+        {
+          "id": "extra-pineapples",
+          "name": "Pineapples",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 20
+            }
+          ]
+        },
+        {
+          "id": "extra-peppers",
+          "name": "Peppers",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 15
+            }
+          ]
+        },
+        {
+          "id": "extra-chillies",
+          "name": "Fresh/Crushed Chillies",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 10
+            }
+          ]
+        },
+        {
+          "id": "extra-garlic",
+          "name": "Garlic",
+          "description": "Additional topping",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 10
+            }
+          ]
+        },
+        {
+          "id": "extra-cheese-sauce",
+          "name": "Cheese Sauce",
+          "description": "Additional sauce",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 15
+            }
+          ]
+        },
+        {
+          "id": "extra-chillinaise",
+          "name": "Chillinaise",
+          "description": "Additional sauce",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 15
+            }
+          ]
+        },
+        {
+          "id": "extra-mushroom-sauce",
+          "name": "Mushroom Sauce",
+          "description": "Additional sauce",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "note": null,
+      "items": [
+        {
+          "id": "side-fries",
+          "name": "Fries",
+          "description": "Regular fries",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 25
+            }
+          ]
+        },
+        {
+          "id": "side-loaded-fries",
+          "name": "Loaded Fries",
+          "description": "Fries with cheese sauce & jalapeño",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 83
+            }
+          ]
+        },
+        {
+          "id": "side-garlic-naan",
+          "name": "Garlic Naan",
+          "description": "Garlic bread",
+          "note": null,
+          "visual": null,
+          "prices": [
+            {
+              "size": "x",
+              "price": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
