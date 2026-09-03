@@ -113,43 +113,19 @@ function playSplash() {
   const logo = document.getElementById("splash-logo");
   const fill = document.getElementById("splash-fill");
   const meta = splash.querySelector(".splash-meta");
-  if (!splash || !gsap) return;
+  if (!splash) return;
+
+  if (!gsap) {
+    splash.remove();
+    return;
+  }
 
   const tl = gsap.timeline({ onComplete: () => splash.remove() });
 
   tl.to(logo, { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }, 0);
   tl.fromTo(meta, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.2);
-  tl.to(fill, { width: "100%", duration: 1.9, ease: "power1.inOut" }, 0.3);
-  tl.to([meta, fill.parentElement], { opacity: 0, duration: 0.3 }, 1.9);
-
-  const thumb = document.getElementById("thumb-logo");
-  if (thumb) {
-    const target = () => {
-      const r = thumb.getBoundingClientRect();
-      const lr = logo.getBoundingClientRect();
-      return {
-        x: r.left + r.width / 2 - (lr.left + lr.width / 2) - window.scrollX,
-        y: r.top + r.height / 2 - (lr.top + lr.height / 2) - window.scrollY,
-        w: Math.min(r.width, 90)
-      };
-    };
-    const t0 = target();
-    tl.set(logo, { position: "absolute", left: "auto", right: "auto" });
-    tl.to(logo, {
-      x: t0.x,
-      y: t0.y,
-      width: t0.w,
-      onUpdate() {
-        const t = target();
-        gsap.set(logo, { x: t.x, y: t.y, width: t.w });
-      },
-      duration: 0.8,
-      ease: "power2.inOut"
-    }, 2.0);
-    tl.to(splash, { opacity: 0, duration: 0.4, ease: "power2.in" }, 2.6);
-  } else {
-    tl.to(splash, { opacity: 0, duration: 0.6 }, 2.2);
-  }
+  tl.to(fill, { width: "100%", duration: 4.0, ease: "none" }, 0.3);
+  tl.to(splash, { y: "-100%", duration: 0.6, ease: "power2.inOut" }, 4.7);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
