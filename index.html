@@ -6,13 +6,22 @@
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#313131" />
   <title>Manies Pizza</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png" />
+  <script src="lib/gsap.min.js"></script>
+  <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
+  <div id="splash">
+    <div class="splash-logo" id="splash-logo"><img src="img/logo-trans.png" alt="" /></div>
+    <div class="splash-bar"><span id="splash-fill"></span></div>
+    <div class="splash-meta">
+      <div class="splash-tag">Manies Pizza</div>
+      <div class="splash-copy">Wood-fired · Grassy Park &amp; Rondebosch</div>
+      <div class="splash-version">v01.20</div>
+    </div>
+  </div>
+
   <div id="views">
     <section id="home" class="view"></section>
     <section id="services" class="view" style="display:none"></section>
@@ -57,5 +66,10 @@
   </nav>
 
   <script type="module" src="js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+    }
+  </script>
 </body>
 </html>
