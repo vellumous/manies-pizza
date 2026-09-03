@@ -1,0 +1,677 @@
+<style>
+  /* ── tokens ───────────────────────────────────────────────── */
+  :root {
+    --ink:        #1a1208;
+    --muted:      #6b5c47;
+    --rule:       #d9cfc4;
+    --accent:     #c0392b;
+    --bg-section: transparent;
+
+    --f-display: 'Playfair Display', Georgia, serif;
+    --f-body:    'DM Sans', system-ui, sans-serif;
+
+    /* clamp(min, preferred, max) — scales fluidly from ~320px → 2560px */
+    --t-category: clamp(1.15rem,  2.2vw, 2rem);
+    --t-name:     clamp(0.9rem,   1.4vw, 1.35rem);
+    --t-desc:     clamp(0.72rem,  1.05vw, 1rem);
+    --t-price:    clamp(0.7rem,   1vw,   0.95rem);
+    --t-header:   clamp(0.6rem,   0.85vw, 0.8rem);
+
+    --gap-row:    clamp(0.6rem, 1.2vw, 1.1rem);
+    --gap-col:    clamp(0.5rem, 1.5vw, 1.4rem);
+    --pad-section:clamp(1.2rem, 3vw,   2.8rem) 0;
+  }
+
+  /* ── wrapper ──────────────────────────────────────────────── */
+  .mn-menu {
+    font-family: var(--f-body);
+    color: var(--ink);
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto 50vh;
+  }
+
+  /* ── category block ───────────────────────────────────────── */
+  .mn-section {
+    padding: var(--pad-section);
+    border-bottom: 1.5px solid var(--rule);
+    background: var(--rule);
+  }
+  .mn-section:last-child { border-bottom: none; }
+
+  .mn-category-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: clamp(0.6rem, 1.5vw, 1.2rem);
+  }
+
+  .mn-category-name {
+    font-family: var(--f-display);
+    font-size: var(--t-category);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .mn-size-legend {
+    display: flex;
+    gap: var(--gap-col);
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .mn-size-legend span,
+  .mn-price-cell {
+    font-family: var(--f-body);
+    font-size: var(--t-header);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    min-width: clamp(1.8rem, 3.5vw, 3rem);
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+      .mn-size-legend span,
+      .mn-price-cell { 
+        text-align: right;
+    }
+  }
+
+  /* ── item row ─────────────────────────────────────────────── */
+  .mn-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: var(--gap-col);
+    row-gap: 0.15em;
+    padding: var(--gap-row) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .mn-item:first-of-type { border-top: none; }
+
+  .mn-item-name {
+    font-family: var(--f-display);
+    font-size: var(--t-name);
+    font-weight: 400;
+    grid-column: 1;
+    grid-row: 1;
+    line-height: 1.25;
+  }
+
+  .mn-item-desc {
+    font-size: var(--t-desc);
+    font-weight: 300;
+    color: var(--muted);
+    grid-column: 1;
+    grid-row: 2;
+    line-height: 1.45;
+    max-width: 52ch;
+  }
+
+  .mn-item-note {
+    font-size: var(--t-desc);
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .mn-prices {
+    display: flex;
+    gap: var(--gap-col);
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .mn-price-cell {
+    font-size: var(--t-price);
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+    min-width: clamp(1.8rem, 3.5vw, 3rem);
+  }
+
+  .mn-price-cell.mn-empty { color: transparent; user-select: none; }
+
+
+  .mn-price-cell:not(.mn-empty) {
+        cursor: pointer;
+        border-radius: 4px;
+        padding: 2px 4px;
+    }
+
+  .mn-price-cell:not(.mn-empty):hover {
+      background: black;
+      color: white;
+      border: 2px solid white;
+      border-radius: 50px;
+      padding: 2px;
+      font-weight: normal;
+      font-size: var(--t-price);
+  }
+
+  .grills {
+    margin-left: -30px;
+    margin-bottom: 0px;
+    padding: 5px 28px;
+  }
+
+  .guide {
+    margin: -10px auto 10px;
+    font-family: var(--f-display);
+    font-size: 1rem;
+    border: 1px solid #000;
+    background: #fbfaf9;
+  }
+
+</style>
+
+<div class="notes guide">select any amount to add to cart</div>
+<div class="mn-menu">  
+
+  <!-- ── PIZZA — STEAK ──────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Steak</h2>
+      <div class="mn-size-legend">
+        <span>Slow</span>
+        <span>S</span>
+        <span>M</span>
+        <span>L</span>
+        <span>Go</span>
+        <span>Mini</span>
+        <span>Meg</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Bokaap</div>
+      <div class="mn-item-desc">Gheema steak, coriander &amp; green pepper</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">145</span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Parkwood</div>
+      <div class="mn-item-desc">Smokey BBQ steak &amp; avo <span class="mn-item-note">— avo seasonal</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell"></span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Wynberg</div>
+      <div class="mn-item-desc">Pepper steak, mushrooms, red onion &amp; green pepper</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell"></span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Manenberg</div>
+      <div class="mn-item-desc">Spicy steak, kaapse beans, peppers, chillies &amp; nachos</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">145</span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Newlands <span class="mn-item-note">New</span></div>
+      <div class="mn-item-desc">Caramelized BBQ steak, mushrooms, feta &amp; rocket</div>
+      <div class="mn-prices"><span class="mn-price-cell"></span><span class="mn-price-cell"></span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item" style="padding-top:0; border-top:none;">
+      <div class="mn-item-desc mn-item-note" style="grid-column:1/-1;">All Meg sizes include nachos</div>
+    </div>
+  </div>
+
+  <!-- ── PIZZA — MEAT ───────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Meat</h2>
+      <div class="mn-size-legend">
+        <span>Slow</span>
+        <span>M</span>
+        <span>L</span>
+        <span>Go</span>
+        <span>Mini</span>
+        <span>Meg</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Rondebosch East</div>
+      <div class="mn-item-desc">Pastrami, salami, pineapple, green pepper &amp; avo <span class="mn-item-note">— avo seasonal</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Mitchells Plain</div>
+      <div class="mn-item-desc">Smokey BBQ sausage, banana, caramelized onion, rocket &amp; balsamic glaze</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Ottery</div>
+      <div class="mn-item-desc">Salami, char-grilled beef patty, jalapeño sauce, pineapple, caramelized onion &amp; fresh coriander</div>
+        <div class="mn-prices"><span class="mn-price-cell"></span><span class="mn-price-cell">175</span><span class="mn-price-cell">205</span><span class="mn-price-cell">145</span><span class="mn-price-cell">270</span><span class="mn-price-cell">325</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Southfield</div>
+      <div class="mn-item-desc">Pepperoni, mozzarella on Napolitana base</div>
+      <div class="mn-prices"><span class="mn-price-cell"></span><span class="mn-price-cell">165</span><span class="mn-price-cell">195</span><span class="mn-price-cell">145</span><span class="mn-price-cell">255</span><span class="mn-price-cell">305</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Lavender Hill <span class="mn-item-note">New</span></div>
+      <div class="mn-item-desc">Ground beef, jalapeños, fresh chillies &amp; pepperdews</div>
+      <div class="mn-prices"><span class="mn-price-cell"></span><span class="mn-price-cell"></span><span class="mn-price-cell">165</span><span class="mn-price-cell"></span><span class="mn-price-cell"></span><span class="mn-price-cell"></span></div>
+    </div>
+  </div>
+
+  <!-- ── PIZZA — CHICKEN ────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Chicken</h2>
+      <div class="mn-size-legend">
+        <span>Slow</span>
+        <span>S</span>
+        <span>M</span>
+        <span>L</span>
+        <span>Go</span>
+        <span>Mini</span>
+        <span>Meg</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Plumstead</div>
+      <div class="mn-item-desc">BBQ chicken, feta &amp; red onion</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">125</span><span class="mn-price-cell">145</span><span class="mn-price-cell">185</span><span class="mn-price-cell">145</span><span class="mn-price-cell">235</span><span class="mn-price-cell">290</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Rylands</div>
+      <div class="mn-item-desc">Spicy chicken, peri-pineapple &amp; coriander</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">125</span><span class="mn-price-cell">145</span><span class="mn-price-cell">185</span><span class="mn-price-cell">145</span><span class="mn-price-cell">235</span><span class="mn-price-cell">290</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Moezna</div>
+      <div class="mn-item-desc">Recco chicken, mushrooms, red onion &amp; peppers</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">125</span><span class="mn-price-cell">145</span><span class="mn-price-cell">185</span><span class="mn-price-cell">145</span><span class="mn-price-cell">235</span><span class="mn-price-cell">290</span></div>
+    </div>
+  </div>
+
+  <!-- ── PIZZA — GOURMET ────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Gourmet</h2>
+      <div class="mn-size-legend">
+        <span>L</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Waterfront</div>
+      <div class="mn-item-desc">Crayfish, prawns, pineapple, pepperdews &amp; olives <span class="mn-item-note">— seasonal</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">270</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Claremont</div>
+      <div class="mn-item-desc">Deboned ribs, butternut, baby marrow, red onion, mushrooms, feta, cream cheese &amp; pepperdews</div>
+      <div class="mn-prices"><span class="mn-price-cell">220</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Hanover Park</div>
+      <div class="mn-item-desc">Flame-grilled chicken in Manies Secret sauce, coriander &amp; avo <span class="mn-item-note">— avo seasonal</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">220</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">District Six</div>
+      <div class="mn-item-desc">Grilled chops, mushroom, red onion &amp; feta, topped with Manies Secret sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">220</span></div>
+    </div>
+  </div>
+
+  <!-- ── PIZZA — SEAFOOD ────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Seafood</h2>
+      <div class="mn-size-legend">
+        <span>L</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Kalkbay</div>
+      <div class="mn-item-desc">Braai snoek, prawns, green peppers, onions &amp; pepperdews</div>
+      <div class="mn-prices"><span class="mn-price-cell">200</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Hout Bay</div>
+      <div class="mn-item-desc">Braai snoek, onions, peri-pineapple, chillies, yoghurt sauce, pepperdews &amp; 3 cheeses</div>
+      <div class="mn-prices"><span class="mn-price-cell">220</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Saldanha Bay</div>
+      <div class="mn-item-desc">Creamy lemon butter mussels with tikka prawns, cream cheese, truffle garlic &amp; herb base, red onion, green pepper &amp; mushrooms</div>
+      <div class="mn-prices"><span class="mn-price-cell">240</span></div>
+    </div>
+  </div>
+
+     <!-- ── PIZZA — VEGETARIAN ─────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Vegetarian</h2>
+      <div class="mn-size-legend">
+        <span>S</span><span>M</span><span>L</span><span>Meg</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Garlic Chita</div>
+      <div class="mn-item-desc">Garlic base, mozzarella, seasoning</div>
+      <div class="mn-prices"><span class="mn-price-cell">75</span><span class="mn-price-cell">90</span><span class="mn-price-cell">110</span><span class="mn-price-cell mn-empty">—</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Margherita</div>
+      <div class="mn-item-desc">Napolitano base, mozzarella, seasoning</div>
+      <div class="mn-prices"><span class="mn-price-cell">75</span><span class="mn-price-cell">90</span><span class="mn-price-cell">110</span><span class="mn-price-cell mn-empty">—</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Cheesy Trio</div>
+      <div class="mn-item-desc">Feta, mozzarella &amp; cheddar</div>
+      <div class="mn-prices"><span class="mn-price-cell">85</span><span class="mn-price-cell">90</span><span class="mn-price-cell">110</span><span class="mn-price-cell mn-empty">—</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Chilli Blaster</div>
+      <div class="mn-item-desc">Mushrooms, peri-pineapple, chillies &amp; pepperdews</div>
+      <div class="mn-prices"><span class="mn-price-cell">120</span><span class="mn-price-cell">160</span><span class="mn-price-cell mn-empty">—</span><span class="mn-price-cell">140</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Heathfield</div>
+      <div class="mn-item-desc">Butternut, mushroom, baby marrow, caramelized onion &amp; pepperdews</div>
+      <div class="mn-prices"><span class="mn-price-cell">120</span><span class="mn-price-cell">160</span><span class="mn-price-cell mn-empty">—</span><span class="mn-price-cell">140</span></div>
+    </div>
+  </div>   
+    
+  <!-- ── BURGERS ───────────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Burgers</h2>
+      <div class="mn-size-legend">
+        <span>S</span><span>D</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Chicken Burger</div>
+      <div class="mn-item-desc">Grilled chicken fillet, cheese, fries &amp; choice of mushroom or cheese sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">79</span><span class="mn-price-cell">99</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Beef Burger</div>
+      <div class="mn-item-desc">Beef patty, cheese, fries &amp; choice of mushroom or cheese sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">79</span><span class="mn-price-cell">99</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Wagyu Beef Burger</div>
+      <div class="mn-item-desc">Wagyu beef patty, cheese, fries &amp; choice of mushroom or cheese sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell"></span><span class="mn-price-cell">120</span></div>
+    </div>
+  </div>
+
+  <!-- ── PASTAS ─────────────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Pastas</h2>
+      <div class="mn-size-legend">
+        <span>L</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Durbanville</div>
+      <div class="mn-item-desc">Recco linguine / penne with chicken &amp; mushroom <span class="mn-item-note">— serves 2</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">165</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Plattekloof</div>
+      <div class="mn-item-desc">Linguini, chicken, salami, sausage, mushrooms &amp; parmesan <span class="mn-item-note">— serves 2</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">185</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Table View</div>
+      <div class="mn-item-desc">Baby tomatoes, mushrooms, basil &amp; mozzarella <span class="mn-item-note">— vegetarian, serves 2</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">125</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Blouberg</div>
+      <div class="mn-item-desc">Linguini, prawns, cherry tomatoes &amp; rocket <span class="mn-item-note">— serves 2</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">155</span></div>
+    </div>
+  </div>
+
+  <!-- ── GRILLS ─────────────────────────────────────────────── -->
+  <div class="mn-section" id="grills">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Grills</h2>
+      <div class="mn-size-legend">
+        <span>L</span>
+      </div>
+    </div>
+    <div class="notes grills">Grills <b>only</b> available at Grassy Park</div>
+    <div class="mn-item">
+      <div class="mn-item-name">Chicken Wings</div>
+      <div class="mn-item-desc">Five whole wings — lemon herb, smokey BBQ, peri-peri or tikka</div>
+      <div class="mn-prices"><span class="mn-price-cell">140</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Ribs Half</div>
+      <div class="mn-item-desc">Half portion with choice of mushroom or cheese sauce <span class="mn-item-note">— 400g</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">255</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Ribs Full</div>
+      <div class="mn-item-desc">Full portion with choice of mushroom or cheese sauce <span class="mn-item-note">— 800g</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">345</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Mix Grill</div>
+      <div class="mn-item-desc">2pc Chicken, 2pc Chops, 2pc Sausage, 2pc Steak, 1pc Keb <span class="mn-item-note">— Masala or BBQ</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">395</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Chicken Kebabs</div>
+      <div class="mn-item-desc">Choice of lemon herb, smokey BBQ, peri-peri or tikka <span class="mn-item-note">— 200g</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">155</span></div>
+    </div>
+  </div>
+
+  <!-- ── SANDWHICHES ─────────────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Sandwiches</h2>
+      <div class="mn-size-legend">
+        <span>L</span>
+      </div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Masala Steak Brood</div>
+      <div class="mn-item-desc">Masala steak and potato, layered on three slices of toasted bread, topped with crisp lettuce, red onions, two fried eggs and melted cheese. Sprinkled with a touch of manies magic</div>
+      <div class="mn-prices"><span class="mn-price-cell">109</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Masala Chicken Brood</div>
+      <div class="mn-item-desc">Masala chicken and potato, layered on three slices of toasted bread, topped with crisp lettuce, red onions, two fried eggs and melted cheese. Sprinkled with a touch of manies magic</div>
+      <div class="mn-prices"><span class="mn-price-cell">99</span></div>
+    </div>
+  </div>
+
+  <!-- ── MILKSHAKES ─────────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Milkshakes</h2>
+      <div class="mn-size-legend">
+        <span>S</span><span>M</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Chocolate</div>
+      <div class="mn-item-desc">Classic double thick</div>
+      <div class="mn-prices"><span class="mn-price-cell">45</span><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Strawberry</div>
+      <div class="mn-item-desc">Classic double thick</div>
+      <div class="mn-prices"><span class="mn-price-cell">45</span><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Salted Caramel</div>
+      <div class="mn-item-desc">Classic double thick</div>
+      <div class="mn-prices"><span class="mn-price-cell">45</span><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Banana</div>
+      <div class="mn-item-desc">Classic double thick</div>
+      <div class="mn-prices"><span class="mn-price-cell">45</span><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Lime</div>
+      <div class="mn-item-desc">Classic double thick</div>
+      <div class="mn-prices"><span class="mn-price-cell">45</span><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Oreo</div>
+      <div class="mn-item-desc">Classic double thick</div>
+      <div class="mn-prices"><span class="mn-price-cell">45</span><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Falooda</div>
+      <div class="mn-item-desc">Classic double thick</div>
+      <div class="mn-prices"><span class="mn-price-cell"></span><span class="mn-price-cell">55</span></div>
+    </div>
+  </div>
+
+  <!-- ── DESSERTS ───────────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Desserts</h2>
+      <div class="mn-size-legend">
+        <span>M</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Oreo Ice Cream Pudding</div>
+      <div class="mn-item-desc">Chocolate cake, ice cream, sauce, whipped cream &amp; candy toppings <span class="mn-item-note">— 350ml</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Strawberry Ice Cream Pudding</div>
+      <div class="mn-item-desc">Mint cake, ice cream, sauce, whipped cream &amp; candy toppings <span class="mn-item-note">— 350ml</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Peppermint Ice Cream Pudding</div>
+      <div class="mn-item-desc">Vanilla cake, ice cream, sauce, whipped cream &amp; candy toppings <span class="mn-item-note">— 350ml</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Woodfired Waffle</div>
+      <div class="mn-item-desc">Freshly baked wood-fired waffle, two scoops of premium ice cream &amp; choice of sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">55</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Woodfired Waffle Cup</div>
+      <div class="mn-item-desc">Warm wood-fired waffle cubes, ice cream &amp; choice of sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">60</span></div>
+    </div>
+  </div>
+
+  <!-- ── EXTRAS ─────────────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Extras</h2>
+      <div class="mn-size-legend">
+        <span>extra</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Chicken</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">40</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Cheese</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">40</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Sliced Cheese</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">15</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Mushrooms</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">20</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Steak</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">45</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Prawns</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">75</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Avo</div><div class="mn-item-desc">Additional topping <span class="mn-item-note">— seasonal</span></div>
+      <div class="mn-prices"><span class="mn-price-cell">20</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Nachos</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">75</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Pineapples</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">20</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Peppers</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">15</span></div>
+    </div>
+      <div class="mn-item">
+      <div class="mn-item-name">Fresh/Crushed Chillies</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">10</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Garlic</div><div class="mn-item-desc">Additional topping</div>
+      <div class="mn-prices"><span class="mn-price-cell">10</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Cheese Sauce</div><div class="mn-item-desc">Additional sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">15</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Chillinaise</div><div class="mn-item-desc">Additional sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">15</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Mushroom Sauce</div><div class="mn-item-desc">Additional sauce</div>
+      <div class="mn-prices"><span class="mn-price-cell">15</span></div>
+    </div>
+  </div>
+
+  <!-- ── SIDES ──────────────────────────────────────────────── -->
+  <div class="mn-section">
+    <div class="mn-category-header">
+      <h2 class="mn-category-name">Sides</h2>
+      <div class="mn-size-legend">
+        <span>side</span>
+      </div>
+    </div>
+
+    <div class="mn-item">
+      <div class="mn-item-name">Fries</div><div class="mn-item-desc">Regular fries</div>
+      <div class="mn-prices"><span class="mn-price-cell">25</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Loaded Fries</div><div class="mn-item-desc">Fries with cheese sauce &amp; jalapeño</div>
+      <div class="mn-prices"><span class="mn-price-cell">83</span></div>
+    </div>
+    <div class="mn-item">
+      <div class="mn-item-name">Garlic Naan</div><div class="mn-item-desc">Garlic bread</div>
+      <div class="mn-prices"><span class="mn-price-cell">30</span></div>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,462 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --font-inter: 'Inter', sans-serif;
+        --font-playfair: 'Playfair Display', serif;
+    }
+
+    .work-fragment {
+        font-family: var(--font-inter);
+        line-height: 1.6;
+        color: #1a1a1a;
+        background: #fefefe;
+    }
+
+    .magazine-header {
+        background: #313131;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+        font-weight: 500;
+    }
+
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        background: url(img/manies-mural.jpeg) no-repeat center center;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        padding: 2rem;
+        color: black;
+    }
+
+    .hero-category {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+        color: white;
+    }
+
+    .hero-title {
+        font-family: var(--font-playfair);
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: white;
+    }
+
+    .hero-subtitle {
+        font-size: 1.4rem;
+        font-weight: 300;
+        line-height: 1.4;
+        opacity: 0.95;
+        margin-bottom: 2rem;
+        background-color: white;
+        color: black;
+        display: inline;
+        padding: .1rem;
+    }
+
+    .hero-byline {
+        font-size: 0.95rem;
+        font-weight: normal;
+        letter-spacing: 0px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        padding-top: 1rem;
+        margin-top: 2rem;
+        color: white;
+    }
+
+    .article-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        font-family: var(--f-display);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .article-date {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-read-time {
+        font-size: 0.85rem;
+        color: #999;
+    }
+
+    .dropcap {
+        float: left;
+        font-family: var(--font-playfair);
+        font-size: 4.5rem;
+        line-height: 1;
+        padding-right: 8px;
+        padding-top: 4px;
+        margin-right: 8px;
+        color: #D2691E;
+        font-weight: 600;
+    }
+
+    .article-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    .article-text p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+    }
+
+    .pullquote {
+        font-family: var(--font-playfair);
+        font-size: 1.8rem;
+        font-style: italic;
+        text-align: center;
+        color: #8B4513;
+        margin: 3rem 0;
+        padding: 2rem;
+        border-left: 4px solid #D2691E;
+        background: rgba(210, 105, 30, 0.03);
+        position: relative;
+    }
+
+    .pullquote::before {
+        content: '"';
+        font-size: 4rem;
+        position: absolute;
+        left: 1rem;
+        top: 0.5rem;
+        color: #D2691E;
+        opacity: 0.3;
+    }
+
+    .section-break {
+        text-align: center;
+        margin: 4rem 0;
+        font-size: 1.5rem;
+        color: #D2691E;
+    }
+
+    .image-caption {
+        font-size: 0.9rem;
+        color: #666;
+        font-style: italic;
+        text-align: center;
+        margin-top: 1rem;
+        line-height: 1.4;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        height: auto;
+        background: linear-gradient(45deg, #f8f8f8, #e8e8e8);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 3rem 0;
+        border: 2px dashed #D2691E;
+        color: #8B4513;
+        font-style: italic;
+        font-size: 1rem;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .sidebar-fact {
+        background: #f9f9f9;
+        padding: 2rem;
+        margin: 3rem 0;
+        border-left: 4px solid #D2691E;
+        font-size: 0.95rem;
+    }
+
+    .sidebar-fact h3 {
+        font-family: var(--font-playfair);
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #8B4513;
+    }
+
+    .emphasis {
+        font-style: italic;
+        color: #D2691E;
+        font-weight: 500;
+    }
+
+    .author-bio {
+        padding: 2rem 2rem 4rem;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .author-bio h4 {
+        font-family: var(--font-playfair);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #8B4513;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .article-container {
+            padding: 2rem 1rem;
+        }
+
+        .pullquote {
+            font-size: 1.4rem;
+            margin: 2rem 0;
+        }
+
+        .dropcap {
+            font-size: 3.5rem;
+        }
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: #00000087;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+    .premium-editorial-container {
+        font-family: 'Merriweather', 'Georgia', serif;
+        background-color: #fdfdfd;
+        color: #222;
+        max-width: 800px;
+        margin: 6rem auto;
+        padding: 0 2rem;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .premium-editorial-container header {
+        text-align: center;
+        margin-bottom: 3rem;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 2rem;
+    }
+
+    .premium-editorial-container .category {
+        font-family: 'Helvetica Neue', 'Arial', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.75rem;
+        color: #888;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .premium-editorial-container h1 {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        font-weight: 700;
+        margin: 0 auto 1rem auto;
+        color: #111;
+    }
+
+    .premium-editorial-container .subtitle {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-style: italic;
+        font-size: 1.5rem;
+        color: #555;
+        margin: 0;
+        font-weight: 300;
+    }
+
+    .premium-editorial-container .story-content p {
+        font-size: 1.125rem;
+        margin-bottom: 1.75rem;
+        color: #333;
+    }
+
+    .premium-editorial-container .story-content p:first-of-type::first-letter {
+        float: left;
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-size: 5.5rem;
+        line-height: 0.8;
+        padding-top: 4px;
+        padding-right: 12px;
+        padding-left: 3px;
+        color: #111;
+    }
+
+    .premium-editorial-container blockquote {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-size: 1.75rem;
+        font-style: italic;
+        text-align: center;
+        margin: 3rem 0;
+        color: #444;
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .premium-editorial-container blockquote::before {
+        content: "“";
+        display: block;
+        font-size: 4rem;
+        line-height: 0;
+        margin-bottom: -20px;
+        color: #ddd;
+    }
+
+    .premium-editorial-container footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e0e0e0;
+        text-align: center;
+    }
+
+    .premium-editorial-container .author-bio {
+        font-family: 'Helvetica Neue', 'Arial', sans-serif;
+        font-size: 0.85rem;
+        color: #777;
+
+    }
+
+    @media (max-width: 768px) {
+        .premium-editorial-container {
+            margin: 3rem 0;
+            padding: 0 1.5rem;
+        }
+
+        .premium-editorial-container h1 {
+            font-size: 2.5rem;
+        }
+
+        .premium-editorial-container .story-content p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="work-fragment">
+    <header class="magazine-header">
+        MANIES - OUR STORY
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-category">Food & Culture</div>
+            <h1 class="hero-title">The Alchemy of Survival</h1>
+            <p class="hero-subtitle">How a Cape Malay family transformed ancient spice wisdom into modern
+                resilience, one pizza at a time</p>
+            <div class="hero-byline">By Hugh Mosno</div>
+        </div>
+    </section>
+
+    <section id="editorial-story-levy" class="premium-editorial-container">
+        <header>
+            <span class="Category">Grassy Park, Cape Town</span>
+            <h1>A Recipe for Resilience</h1>
+            <p class="Subtitle"></p>
+        </header>
+
+        <div class="story-content">
+            <p>In the silent streets of a locked-down Cape Town, while the world held its breath, the aroma of baking
+                yeast, simmering tomato, and fragrant masala began to drift from a humble garage in the southern
+                suburbs. This was the first alchemical act of Manie and Faldielah Levy: to transform the base metal of a
+                global crisis into the gold of a new beginning.</p>
+
+            <p>Their story, however, is not one of entrepreneurial spirit. It is a deeply personal narrative of a Cape
+                Malay family, a testament to the enduring power of faith, tradition, and an unshakeable bond that proved
+                stronger than any pandemic.</p>
+
+            <p>Food is not just sustenance in the Levy household; <b>it was a language</b>, a love letter written in
+                spices and shared across the kitchen table.</p>
+
+            <p>When the lockdown was announced in March 2020, the future evaporated. The familiar rhythms of life ground
+                to a halt. But for Manie and Faldielah, paralysis was not an option. The family garage became a
+                crucible. The idea was simple, almost naive: sell pizzas. A small act of survival.</p>
+
+            <blockquote>The alchemy was not in the recipe, but in the intention. Each pizza was a small act of defiance
+                against despair.</blockquote>
+
+            <p>The work was relentless, a physical and spiritual marathon. There were no shortcuts, no corporate safety
+                nets. Just the two of them, kneading dough late into the night, their hands moving with a practiced
+                grace born from decades of cooking for their family. The alchemy was not in the recipe, but in the
+                intention. Each pizza that slid from the makeshift oven was a small act of defiance against despair.</p>
+
+            <p>But a solitary act of defiance rarely survives in a vacuum. It needs a witness. It needs a community. And
+                the community arrived. First, a neighbor. Then a friend. The garage became a beacon, a place where the
+                isolating walls of the pandemic seemed to dissolve, if only for the time it took to exchange a few Rand
+                for a steaming box of hope. They weren't just buying dinner; they were investing in a family, a tangible
+                way to say, <i>“We are still here. We are in this together.”</i></p>
+
+            <p>From the garage, the story rose. The resilience that had carried them through the darkest days became the
+                foundation for something more permanent. The first store opened, a bricks-and-mortar realization of a
+                garage dream. Now, as they prepare to launch their second location, and as their frozen pizzas find
+                their way into the freezers of one of South Africa's largest retail chains, the Levys have achieved
+                something far more profound than commercial success.</p>
+
+            <p>They have demonstrated the true meaning of the alchemy of change.</p>
+
+            <p>It is not about the size of the store or the scale of the distribution. It is about the quiet,
+                unshakeable core of a family that refused to be broken. It is about the power of turning a moment of
+                crisis into a lifetime of purpose. The story of Manie and Faldielah Levy is a recipe for resilience, one
+                that will be savored long after the last slice is gone. It is a story that proves, with a little faith
+                and a lot of love, even the most daunting changes can be transformed into something extraordinary.</p>
+        </div>
+
+        <footer>
+            <div class="author-bio">
+                Written for the Levy Family Legacy
+            </div>
+        </footer>
+
+    </section>
+</div>
