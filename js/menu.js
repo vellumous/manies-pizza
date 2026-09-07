@@ -37,7 +37,7 @@ function itemHTML(item, sizes) {
     .join("");
   const inote = item.note ? ` <span class="mn-item-note">&mdash; ${esc(item.note)}</span>` : "";
   const body = `<div class="mn-item-name">${esc(item.name)}</div>
-            <div class="mn-item-desc">${esc(item.description)}${inote}</div>
+            <div class="mn-item-desc"><span class="highlight">${esc(item.description)}</span>${inote}</div>
             <div class="mn-prices">${prices}</div>`;
   if (item.visual) {
     return `<div class="mn-item mn-item-visual" data-id="${item.id}">

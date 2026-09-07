@@ -118,13 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ["home", "about", "menu"].forEach(loadFragment);
     tabs.forEach(tab => tab.addEventListener("click", () => showView(tab.dataset.view, tab)));
     document.getElementById("thumb-logo").addEventListener("click", () => showView("about", null));
-    window.addEventListener("load", () => {
+    const syncPill = () => {
       const active = document.querySelector(".tab.active");
       if (active) updatePill(active);
-    });
-    window.addEventListener("resize", () => {
-      const active = document.querySelector(".tab.active");
-      if (active) updatePill(active);
-    });
+    };
+    syncPill();
+    window.addEventListener("load", syncPill);
+    window.addEventListener("resize", syncPill);
+    setTimeout(syncPill, 500);
   });
 });
