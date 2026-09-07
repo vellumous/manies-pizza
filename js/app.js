@@ -1,4 +1,4 @@
-import { initMenu, renderTextMenu, renderVisualMenu, bindVisualMenu, updateConnectors } from "./menu.js";
+import { initMenu, renderTextMenu } from "./menu.js";
 import { initCart, addItem, feedback, sendOrder, grassyParkSelected, cartVisibleFlag } from "./cart.js";
 
 const tabs = document.querySelectorAll(".tab");
@@ -22,15 +22,12 @@ async function showView(name, tabNode) {
     pill.style.width = "0px";
   }
 
-  if (name === "menu" || name === "services") {
-    const view = document.getElementById(name);
+  if (name === "menu") {
+    const view = document.getElementById("menu");
     if (view && !view.hasAttribute("data-ready")) {
       view.setAttribute("data-ready", "");
-      if (name === "menu") {
-        view.innerHTML = `<div class="notes guide">select any amount to add to cart</div><div class="mn-menu"></div>`;
-        renderTextMenu();
-      }
-      if (name === "services") await loadServices();
+      view.innerHTML = `<div class="notes guide">select any amount to add to cart</div><div class="mn-menu"></div>`;
+      renderTextMenu();
     }
   }
 
@@ -47,27 +44,6 @@ async function showView(name, tabNode) {
     gsap.to(dim, { opacity: 0, duration: 0.3, delay: 0.5 });
     if (tabNode) gsap.to(tabNode, { scale: 1, duration: 0.3, delay: 0.5 });
   }, 300);
-}
-
-async function loadServices() {
-  const view = document.getElementById("services");
-  const res = await fetch("fragments/services.html");
-  view.innerHTML = await res.text();
-  wireServices();
-}
-
-function wireServices() {
-  const view = document.getElementById("services");
-  const sticky = document.getElementById("sticky-header");
-  const section = document.getElementById("menu-section");
-  view.addEventListener("scroll", () => {
-    const on = view.scrollTop > 200;
-    sticky.classList.toggle("visible", on);
-    section.classList.toggle("sticky-active", on);
-  });
-  window.addEventListener("resize", updateConnectors);
-  renderVisualMenu();
-  bindVisualMenu();
 }
 
 let appMenu = null;
@@ -139,7 +115,7 @@ function playSplash() {
 document.addEventListener("DOMContentLoaded", () => {
   playSplash();
   boot().then(() => {
-    ["home", "about", "services", "menu"].forEach(loadFragment);
+    ["home", "about", "menu"].forEach(loadFragment);
     tabs.forEach(tab => tab.addEventListener("click", () => showView(tab.dataset.view, tab)));
     document.getElementById("thumb-logo").addEventListener("click", () => showView("about", null));
     window.addEventListener("load", () => {
