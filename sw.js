@@ -1,16 +1,11 @@
-const CACHE = "manies-v1";
+const CACHE = "manies-v2";
 const SHELL = [
   "/",
   "/index.html",
-  "/css/site.css",
-  "/css/fonts.css",
   "/lib/gsap.min.js",
-  "/data/menu.json",
   "/manifest.json",
   "/fragments/home.html",
   "/fragments/about.html",
-  "/fragments/menu.html",
-  "/fragments/services.html",
   "/fonts/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
   "/fonts/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
   "/fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2",
@@ -52,12 +47,30 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
+  const type = e.request.destination;
+  const isApp = type === "style" || type === "script" || type === "font" || e.request.destination === "empty" && /json/.test(e.request.url);
+
+  if (isApp || type === "empty") {
+    e.respondWith(
+      fetch(e.request)
+        .then((res) => {
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE).then((c) => c.put(e.request, copy));
+          }
+          return res;
+        })
+        .catch(() => caches.match(e.request, { ignoreSearch: true }))
+    );
+    return;
+  }
+
   e.respondWith(
     caches.match(e.request).then(
       (hit) =>
         hit ||
         fetch(e.request).then((res) => {
-          if (res.ok && (e.request.destination === "style" || e.request.destination === "font")) {
+          if (res.ok) {
             const copy = res.clone();
             caches.open(CACHE).then((c) => c.put(e.request, copy));
           }
